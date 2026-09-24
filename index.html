@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CampusBite - a colourful campus food ordering interface.">
+  <title>CampusBite | Good Food. Less Waiting.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="page-glow glow-one"></div>
+  <div class="page-glow glow-two"></div>
+
+  <header class="navbar">
+    <a class="brand" href="#home" aria-label="CampusBite home">
+      <span class="brand-mark">🍴</span>
+      <span>Campus<span>Bite</span></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#menu">Menu</a>
+      <a href="#popular">Popular</a>
+      <a href="#favorites">Favorites</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle dark mode">☾</button>
+      <button class="cart-btn" id="cartBtn">
+        🛒 <span>Cart</span><b id="cartCount">0</b>
+      </button>
+      <button class="menu-btn" id="menuBtn" aria-label="Open navigation">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero section" id="home">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span>●</span> MADE FOR CAMPUS LIFE</div>
+        <h1>Good food.<br><em>Less waiting.</em></h1>
+        <p>Discover student favourites, build your order in seconds, and get back to what matters.</p>
+        <div class="hero-actions">
+          <a class="primary-btn" href="#menu">Explore menu <span>→</span></a>
+          <button class="text-btn" id="heroPopularBtn">See what's popular <span>↗</span></button>
+        </div>
+        <div class="hero-stats">
+          <div><strong>4.8★</strong><span>student rating</span></div>
+          <div><strong>15 min</strong><span>average pickup</span></div>
+          <div><strong>50+</strong><span>campus favourites</span></div>
+        </div>
+      </div>
+
+      <div class="hero-art reveal delay-one">
+        <div class="hero-ring ring-one"></div>
+        <div class="hero-ring ring-two"></div>
+        <div class="floating-chip chip-top">⚡ Fast pickup</div>
+        <div class="floating-chip chip-bottom">♥ 2.4k students love it</div>
+        <div class="hero-food-card">
+          <div class="hero-food-visual">
+            <span class="steam steam-a"></span><span class="steam steam-b"></span>
+            <div class="bowl">🍜</div>
+          </div>
+          <div class="hero-food-info">
+            <div><strong>Campus Noodles</strong><span>₹129</span></div>
+            <small>Spicy • Cheesy • Comforting</small>
+            <div class="mini-rating">★★★★★ <span>4.9</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="trust-strip">
+      <span>✦ QUICK BITES</span><span>✦ STUDENT PRICES</span><span>✦ FRESH DAILY</span><span>✦ ZERO BORING MEALS</span>
+    </section>
+
+    <section class="section menu-section" id="menu">
+      <div class="section-heading reveal">
+        <div>
+          <div class="eyebrow">YOUR NEXT CRAVING</div>
+          <h2>Pick your <em>mood.</em></h2>
+        </div>
+        <div class="search-wrap">
+          <span>⌕</span>
+          <input id="searchInput" type="search" placeholder="Search pizza, dosa, coffee..." aria-label="Search food">
+        </div>
+      </div>
+
+      <div class="category-row" id="categoryRow"></div>
+      <div class="food-grid" id="foodGrid"></div>
+    </section>
+
+    <section class="section popular-section" id="popular">
+      <div class="section-heading reveal">
+        <div>
+          <div class="eyebrow">STUDENT FAVOURITES</div>
+          <h2>Popular on <em>campus.</em></h2>
+        </div>
+        <button class="outline-btn" id="allPopularBtn">View all →</button>
+      </div>
+      <div class="popular-grid" id="popularGrid"></div>
+    </section>
+
+    <section class="section favorites-section" id="favorites">
+      <div class="section-heading reveal">
+        <div>
+          <div class="eyebrow">SAVED FOR LATER</div>
+          <h2>Your <em>favourites.</em></h2>
+        </div>
+      </div>
+      <div class="favorites-empty" id="favoritesEmpty">
+        <div>♡</div>
+        <h3>Your favourite bites will appear here.</h3>
+        <p>Tap the heart on any food card to save it.</p>
+      </div>
+      <div class="food-grid" id="favoriteGrid"></div>
+    </section>
+
+    <section class="section campus-banner reveal">
+      <div>
+        <div class="eyebrow">CAMPUSBITE PROMISE</div>
+        <h2>More lunch.<br><em>Less lunch-break chaos.</em></h2>
+        <p>Designed around the way students actually eat: fast, affordable and a little fun.</p>
+      </div>
+      <div class="banner-bubble">🍕<br><span>GOOD<br>VIBES</span></div>
+      <div class="banner-bubble second">🥤</div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-brand"><span class="brand-mark">🍴</span><strong>CampusBite</strong></div>
+    <p>Frontend concept • Built with HTML, CSS & JavaScript</p>
+    <span>© 2026 CampusBite</span>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Shopping cart">
+    <div class="drawer-head">
+      <div><span class="eyebrow">YOUR ORDER</span><h2>Cart <span id="drawerCount">(0)</span></h2></div>
+      <button class="close-btn" id="closeCart">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-bottom">
+      <div class="bill-line"><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+      <div class="bill-line"><span>Campus service</span><strong id="serviceFee">₹0</strong></div>
+      <div class="bill-line total"><span>Total</span><strong id="total">₹0</strong></div>
+      <button class="primary-btn full" id="checkoutBtn">Continue to checkout <span>→</span></button>
+      <small>Frontend demo • No real payment is processed</small>
+    </div>
+  </aside>
+
+  <div class="modal-wrap" id="checkoutModal" aria-hidden="true">
+    <div class="modal">
+      <button class="close-btn modal-close" id="closeModal">×</button>
+      <div class="eyebrow">ALMOST THERE</div>
+      <h2>Finish your <em>order.</em></h2>
+      <p class="modal-sub">Tell us where to send your campus pickup details.</p>
+      <form id="checkoutForm">
+        <label>Full name<input id="nameInput" required placeholder="e.g. Saru"></label>
+        <label>Phone number<input id="phoneInput" required inputmode="numeric" pattern="[0-9]{10}" placeholder="10-digit number"></label>
+        <label>Pickup spot
+          <select id="pickupInput" required>
+            <option value="">Choose a pickup spot</option>
+            <option>Main Block Café</option>
+            <option>Library Café</option>
+            <option>Hostel Food Court</option>
+            <option>Tech Park Counter</option>
+          </select>
+        </label>
+        <div class="checkout-summary" id="checkoutSummary"></div>
+        <button class="primary-btn full" type="submit">Place mock order ✨</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"><span>✓</span><p></p></div>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
